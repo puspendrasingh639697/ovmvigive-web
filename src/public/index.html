@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Secure App" />
+  
+  <!-- 🔒 Security Headers -->
+  <meta http-equiv="Content-Security-Policy" 
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">
+  
+  <!-- 🔒 No Cache Headers -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  
+  <title>Secure App</title>
+  
+  <script>
+    // 🔒 PRELOAD SECURITY SCRIPT
+    (function() {
+      'use strict';
+      
+      // Early protection
+      if (window.outerWidth - window.innerWidth > 200) {
+        document.write('<h1>Access Restricted</h1>');
+        window.stop();
+      }
+      
+      // Override console immediately
+      if (typeof console !== 'undefined') {
+        console.log = function() {};
+        console.warn = function() {};
+        console.error = function() {};
+        console.info = function() {};
+      }
+      
+      // Block F12, Ctrl+Shift+I, etc.
+      document.onkeydown = function(e) {
+        if (e.keyCode === 123) return false;
+        if (e.ctrlKey && e.shiftKey && e.keyCode === 73) return false;
+        if (e.ctrlKey && e.keyCode === 85) return false;
+      };
+    })();
+  </script>
+</head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+</body>
+</html>

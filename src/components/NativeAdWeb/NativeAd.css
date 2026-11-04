@@ -1,0 +1,31 @@
+.ad-card {
+  margin: 12px;
+  padding: 0;
+}
+
+.ad-label {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.ad-container {
+  background: #fff;
+  border-radius: 20px;
+  padding: 16px;
+  border-left: 4px solid #dd2476;
+  box-shadow: 0 7px 15px rgba(255, 81, 47, 0.1);
+  text-align: center;
+  min-height: 120px;
+}
+
+/* fallback text */
+.adsbygoogle:empty::before {
+  content: "Loading test ad…";
+  color: #777;
+  display: block;
+  text-align: center;
+  padding: 40px 0;
+  font-size: 14px;
+}

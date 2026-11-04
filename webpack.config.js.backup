@@ -1,0 +1,27 @@
+const TerserPlugin = require('terser-webpack-plugin');
+const JavaScriptObfuscator = require('webpack-obfuscator');
+
+module.exports = {
+  mode: 'production',
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          mangle: true,
+          compress: true,
+          output: {
+            comments: false,
+          },
+        },
+      }),
+    ],
+  },
+  plugins: [
+    new JavaScriptObfuscator({
+      rotateStringArray: true,
+      stringArray: true,
+      stringArrayThreshold: 0.75
+    }, ['excluded_bundle_name.js'])
+  ]
+};
