@@ -279,7 +279,7 @@ const NativeAdWeb = () => {
 
       {/* Test Mode Indicator */}
       <div className="text-center mt-2 text-xs text-gray-500">
-        ✅ Test Ads Mode Active (Localhost)
+        ✅ Test Ads Mode Active 
       </div>
     </div>
   );

@@ -105,7 +105,7 @@ import Splash from "./Auth/Splash.jsx";
 import MainSrceen from './components/MainSrceen/MainSrceen.jsx';
 import NewUsers from './components/NewUsers/NewUsers.jsx';
 import ChatsAndChat from './components/CombineScreen/ChatsAndChat';
-import Chats from './components/Chats/Chats';
+// import Chats from './components/Chats/Chats';
 import Chat from './components/Chat/Chat';
 
 // SideMenu & Other Pages
@@ -171,7 +171,7 @@ function App() {
           
           {/* Main App Routes */}
           <Route path="/ChatsAndChat" element={<ChatsAndChat />} />
-          <Route path="/chats" element={<Chats />} />
+          {/* <Route path="/chats" element={<Chats />} /> */}
           <Route path="/discover" element={<NewUsers />} />
           {/* <Route path="/newusers" element={<NewUsers />} /> */}
           <Route path="/chat/:userId" element={<Chat />} />
