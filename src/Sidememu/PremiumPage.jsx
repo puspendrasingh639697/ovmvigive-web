@@ -294,7 +294,7 @@ export default function PremiumPage() {
 
   // ✅ Backend se plans fetch karein
   useEffect(() => {
-    fetch("http://localhost:5000/api/plan/all")
+    fetch("https://omnigive-global.onrender.com/api/plan/all")
       .then((res) => res.json())
       .then((data) => {
         setPlans(data);

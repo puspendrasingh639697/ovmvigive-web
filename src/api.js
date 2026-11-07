@@ -1,5 +1,5 @@
 // src/api.js
-const BASE_URL = "http://localhost:5000/api";
+const BASE_URL = "https://omnigive-global.onrender.com/api";
 
 export const registerUser = async (formData) => {
   try {

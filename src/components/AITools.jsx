@@ -30,7 +30,7 @@ export default function AITools() {
 
     try {
       // Yahan hum AI Ice-Breaker API use kar rahe hain
-      const res = await fetch("http://localhost:5000/api/ai/icebreaker", {
+      const res = await fetch("https://omnigive-global.onrender.com/api/ai/icebreaker", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

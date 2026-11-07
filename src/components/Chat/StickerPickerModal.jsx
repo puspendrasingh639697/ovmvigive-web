@@ -11,7 +11,7 @@ export default function StickerPickerModal({ onClose, onSend, userGold, userDiam
 
   // ✅ Backend se saare gifts fetch karein
   useEffect(() => {
-    fetch("http://localhost:5000/api/gift/all")
+    fetch("https://omnigive-global.onrender.com/api/gift/all")
       .then((res) => res.json())
       .then((data) => {
         console.log("Fetched Gifts:", data.length); // Debug

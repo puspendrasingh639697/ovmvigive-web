@@ -10,7 +10,7 @@ import {
   FaUserCircle
 } from "react-icons/fa";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://omnigive-global.onrender.com");
 
 export default function VideoCall() {
   const { userId } = useParams();

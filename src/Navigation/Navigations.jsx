@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { getMessaging, getToken, onMessage, isSupported } from "firebase/messaging";
 import SignUp from '../components/SignUp/SignUp.jsx';
-import Chats from '../components/Chats/Chats.jsx';
+// import Chats from '../components/Chats/Chats.jsx';
 import NewUsers from '../components/NewUsers/NewUsers.jsx';
 import Chat from '../components/Chat/Chat.jsx';
 import CallScreen from '../components/CallScreen/CallScreen.jsx';
@@ -547,7 +547,7 @@ function Navigations() {
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/chats" element={<Chats />} />
+      {/* <Route path="/chats" element={<Chats />} /> */}
       <Route path="/users" element={<NewUsers/>} />
       <Route path="/discover" element={<NewUsers />} />
       <Route path="/chat" element={<Chat />} />

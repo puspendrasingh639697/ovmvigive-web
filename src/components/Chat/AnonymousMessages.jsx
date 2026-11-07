@@ -24,7 +24,7 @@ export default function AnonymousMessages() {
       return;
     }
 
-    fetch("http://localhost:5000/api/anonymous/my-messages", {
+    fetch("https://omnigive-global.onrender.com/api/anonymous/my-messages", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -42,7 +42,7 @@ export default function AnonymousMessages() {
   const handleDelete = async (messageId) => {
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch(`http://localhost:5000/api/anonymous/${messageId}`, {
+      const res = await fetch(`https://omnigive-global.onrender.com/api/anonymous/${messageId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

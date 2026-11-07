@@ -18,7 +18,7 @@ export default function WhoLikedMe() {
       return;
     }
 
-    fetch("http://localhost:5000/api/like/who-liked-me", {
+    fetch("https://omnigive-global.onrender.com/api/like/who-liked-me", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())

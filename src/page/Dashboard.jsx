@@ -871,7 +871,7 @@ export default function Header() {
             {userData?.profilePic ? (
               <div className="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center overflow-hidden">
                 <img 
-                  src={`http://localhost:5000${userData.profilePic}`} 
+                  src={`https://omnigive-global.onrender.com${userData.profilePic}`} 
                   alt={userData?.name || 'User'} 
                   className="w-full h-full object-cover"
                 />

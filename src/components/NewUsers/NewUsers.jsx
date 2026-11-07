@@ -223,7 +223,7 @@ export default function NewUsers() {
         setLoading(true);
         const token = localStorage.getItem("token");
 
-        const response = await fetch("http://localhost:5000/api/looking/discover", {
+        const response = await fetch("/api/looking/discover", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -239,7 +239,7 @@ export default function NewUsers() {
             _id: u._id,
             name: u.name,
             age: u.age,
-            avatar: u.profilePic ? `http://localhost:5000${u.profilePic}` : "https://i.pravatar.cc/300",
+            avatar: u.profilePic ? `https://omnigive-global.onrender.com${u.profilePic}` : "https://i.pravatar.cc/300",
             isverifiedprofile: true, 
             isactivestatus: true, 
             country: u.city || "India",

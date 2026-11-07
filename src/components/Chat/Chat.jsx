@@ -10,7 +10,7 @@ import StickerPickerModal from "./StickerPickerModal";
 import chatBgImage from "../../assets/images/chatbgimage.jpg";
 import chatCenterImage from "../../assets/images/chatimahe.png";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://omnigive-global.onrender.com");
 
 export default function Chat() {
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ export default function Chat() {
   // ✅ Balance fetch karein
   useEffect(() => {
     if (!token) return;
-    fetch("http://localhost:5000/api/gift/my-balance", {
+    fetch("https://omnigive-global.onrender.com/api/gift/my-balance", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -76,7 +76,7 @@ export default function Chat() {
     // Fetch Messages
     const fetchMessages = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/chat/${partnerUser._id}`, {
+        const response = await fetch(`https://omnigive-global.onrender.com/api/chat/${partnerUser._id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = await response.json();
@@ -158,7 +158,7 @@ export default function Chat() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/gift/send", {
+      const res = await fetch("https://omnigive-global.onrender.com/api/gift/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
