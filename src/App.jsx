@@ -126,6 +126,11 @@ import Login from './Auth/Login.jsx';
 import Signup from './components/SignUp/SignUp.jsx';
 import VoiceCall from './components/CallScreen/VoiceCall.jsx';
 import VideoCall from './components/VideoCall.jsx';
+import AITools from './components/AITools.jsx';
+import FloatingAIButton from './components/FloatingAIButton.jsx';
+import WhoLikedMe from './components/WhoLikedMe.jsx';
+import AnonymousMessages from './components/Chat/AnonymousMessages.jsx';
+import SendAnonymous from './components/Chat/SendAnonymous.jsx';
 
 // 404 Page
 const NotFoundPage = () => {
@@ -152,6 +157,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen">
+      <FloatingAIButton/>
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Splash />} />
@@ -176,6 +182,10 @@ function App() {
           <Route path="/callscreen" element={<CallScreen />} />
           <Route path="/joinscreen" element={<JoinScreen />} />
           <Route path="/fullheaderchat" element={<Fullheaderchat />} />
+          <Route path="/ai-tools" element={<AITools />} />
+          <Route path="/who-liked-me" element={<WhoLikedMe />} />
+          <Route path="/anonymous" element={<AnonymousMessages />} />
+          <Route path="/send-anonymous/:userId" element={<SendAnonymous />} /> 
 
           {/* Menu & Static Pages */}
           <Route path="/sideMen" element={<SideMenu />} />

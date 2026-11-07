@@ -25,7 +25,7 @@ export default function StickerPickerModal({ onClose, onSend, userGold, userDiam
   }, []);
 
   // Categories
-  const categories = ["All", "Basic", "Premium", "Luxury", "Special", "Fun"];
+  const categories = ["All", "Basic", "Premium", "Luxury",];
 
   // Filter gifts by category
   const filteredGifts = activeCategory === "All"
@@ -75,22 +75,22 @@ export default function StickerPickerModal({ onClose, onSend, userGold, userDiam
         <div className="flex-1 p-4 overflow-y-auto">
           {loading ? (
             <div className="flex justify-center items-center h-full">
-              <div className="w-10 h-10 border-4 border-green-800 border-t-transparent rounded-full animate-spin"></div>
+              <div className="w-10 h-10 border-4   animate-spin"></div>
             </div>
           ) : filteredGifts.length === 0 ? (
             <div className="flex justify-center items-center h-full text-gray-500">
               No gifts in this category
             </div>
           ) : (
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-4 gap-4">
               {filteredGifts.map((gift) => (
                 <div
                   key={gift._id}
                   onClick={() => setSelectedGift(gift)}
-                  className={`p-2 rounded-xl border-2 cursor-pointer flex flex-col items-center transition ${
+                  className={`p-1  cursor-pointer bg-green-500 flex flex-col items-center transition ${
                     selectedGift?._id === gift._id
-                      ? "border-green-800 bg-green-50 shadow-md"
-                      : "border-gray-200 bg-white hover:bg-gray-50"
+                      ? "border-green-800 bg-green-500 shadow-md"
+                      : "border-gray-200 bg-green-800 hover:bg-gray-50"
                   }`}
                 >
                   <img
@@ -98,7 +98,7 @@ export default function StickerPickerModal({ onClose, onSend, userGold, userDiam
                     alt={gift.name}
                     className="w-16 h-16 object-contain"
                   />
-                  <div className="text-center text-[10px] mt-1 text-gray-700 font-semibold truncate w-full">
+                  <div className="text-center text-[10px] mt-1 text-white font-semibold truncate w-full">
                     {gift.name}
                   </div>
                   <div className="text-center text-xs mt-1 text-yellow-600 font-bold flex items-center gap-1">
