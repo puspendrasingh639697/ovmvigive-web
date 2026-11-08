@@ -1,102 +1,67 @@
-// import React, { useEffect, useState } from "react";
-// import { ref, onValue } from "firebase/database";
-// import { rtdb } from "../../firebase/config"; // ✅ import your existing rtdb
-//  // ✅ import your existing rtdb
-
-// const Terms = () => {
-//   const [privacyUrl, setPrivacyUrl] = useState("");
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     const privacyRef = ref(rtdb, "Terms/terms");
-
-//     // 👂 Listen for changes in realtime
-//     const unsubscribe = onValue(privacyRef, (snapshot) => {
-//       const data = snapshot.val();
-//       if (data) {
-//         setPrivacyUrl(data);
-//       }
-//       setLoading(false);
-//     });
-
-//     // 🧹 Clean up listener
-//     return () => unsubscribe();
-//   }, []);
-
-//   return (
-//     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
-//       <h1 className="text-3xl font-semibold text-gray-900 mb-6">
-//         Privacy Policy
-//       </h1>
-
-//       {loading ? (
-//         <p className="text-gray-600 animate-pulse">Loading...</p>
-//       ) : privacyUrl ? (
-//         <div className="bg-[#FFFAF5] shadow-lg rounded-2xl p-6 w-full max-w-2xl text-center">
-//           <p className="text-gray-700 mb-4">
-//             You can view our privacy policy here:
-//           </p>
-//           <a
-//             href={privacyUrl}
-//             target="_blank"
-//             rel="noopener noreferrer"
-//             className="text-blue-600 hover:text-blue-800 font-medium underline"
-//           >
-//             {privacyUrl}
-//           </a>
-//         </div>
-//       ) : (
-//         <p className="text-red-500">Privacy policy not found.</p>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Terms;
-
-
-
-
-
-
-
-
-import React, { useEffect, useState } from "react";
-import { ref, onValue } from "firebase/database";
-// ✅ import your existing rtdb
-import { rtdb } from "../../firebase/config"; // ✅ import your existing rtdb
+import React from "react";
 
 const Terms = () => {
-  const [privacyUrl, setPrivacyUrl] = useState("");
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // 🔥 Reference to your Firebase Realtime Database path
-   const privacyRef = ref(rtdb, "Terms/terms");
-
-    // 👂 Listen for changes in realtime
-    const unsubscribe = onValue(privacyRef, (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        setPrivacyUrl(data);
-        // 🔥 Automatically open the privacy URL in a new tab
-        window.location.href = data;
-      }
-      setLoading(false);
-    });
-
-    // 🧹 Clean up listener
-    return () => unsubscribe();
-  }, []);
-
-  // Optional: You can keep a fallback message while redirecting
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
-      {loading ? (
-        <p className="text-gray-600 animate-pulse">Loading...</p>
-      ) : (
-        <p className="text-gray-700">Redirecting to Privacy Policy...</p>
-      )}
+    <div className="min-h-screen bg-[#FFFAF5] py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+        <h1 className="text-3xl font-black text-gray-900 mb-6 text-center">
+          Terms of Service
+        </h1>
+        <p className="text-sm text-gray-500 text-center mb-10">
+          Last Updated: {new Date().toLocaleDateString()}
+        </p>
+
+        <div className="space-y-6 text-gray-700 leading-relaxed">
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-2">1. Acceptance of Terms</h2>
+            <p>
+              By accessing or using the OmniGive platform, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services. You must be at least 18 years old to use this platform.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-2">2. User Conduct</h2>
+            <p>
+              You agree to use the platform in a respectful and lawful manner. You will not engage in harassment, hate speech, or share explicit content. Any violation of these rules may result in account suspension or permanent ban without prior notice.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-2">3. Account Security</h2>
+            <p>
+              You are responsible for maintaining the confidentiality of your account credentials. You agree to notify us immediately of any unauthorized use of your account. We are not liable for any loss or damage arising from your failure to protect your credentials.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-2">4. Payments & Subscriptions</h2>
+            <p>
+              Certain features of the platform (such as Gift Coins or Premium Membership) may require payment. All transactions are final and non-refundable unless otherwise stated. Prices are subject to change at any time.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-2">5. Limitation of Liability</h2>
+            <p>
+              OmniGive is not responsible for the conduct of any user on or off the platform. We do not verify the accuracy of information provided by users. You use the service at your own risk.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-2">6. Changes to Terms</h2>
+            <p>
+              We reserve the right to modify these terms at any time. Your continued use of the platform after changes are posted constitutes acceptance of the new terms.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-2">7. Contact Us</h2>
+            <p>
+              If you have any questions about these Terms, please contact us at <a href="mailto:support@omnigive.com" className="text-green-700 underline">support@omnigive.com</a>.
+            </p>
+          </section>
+        </div>
+      </div>
     </div>
   );
 };
